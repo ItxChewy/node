@@ -2,16 +2,24 @@
     "version": 2,
     "builds": [
       {
-        "src": "index.js",
+        "src": "app.js",
         "use": "@vercel/node"
       }
     ],
-    "type": "module",  
     "routes": [
       {
+        "src": "/api/coches/(.*)",
+        "dest": "app.js"
+      },
+      {
+        "src": "/api/marca/(.*)",
+        "dest": "app.js"
+      },
+      {
         "src": "/(.*)",
-        "dest": "index.js"
+        "dest": "app.js"
       }
     ]
   }
+  
   
