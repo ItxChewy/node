@@ -8,14 +8,6 @@
     ],
     "routes": [
       {
-        "src": "/api/coches/(.*)",
-        "dest": "app.js"
-      },
-      {
-        "src": "/api/marca/(.*)",
-        "dest": "app.js"
-      },
-      {
         "src": "/(.*)",
         "dest": "app.js"
       }

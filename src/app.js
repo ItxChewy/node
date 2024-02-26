@@ -11,11 +11,12 @@ const upload = multer({ dest: './static/img' });
 app.set('port', 4000);
 
 app.use(morgan('dev'));
-
 app.use(express.json());
 
-app.use(upload.single('imagen'));
+// Rutas específicas de imágenes
+app.use('/static/images', express.static('./static/img'));
 
+// Rutas de la aplicación
 app.use('/api/coches', cocheRoutes);
 app.use('/api/marca', marcaRoutes);
 
