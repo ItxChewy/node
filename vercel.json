@@ -8,10 +8,23 @@
     ],
     "routes": [
       {
+        "src": "/api/coches/(.*)",
+        "dest": "/api/coches/$1"
+      },
+      {
+        "src": "/api/marca/(.*)",
+        "dest": "/api/marca/$1"
+      },
+      {
+        "src": "/static/images/(.*)",
+        "dest": "/static/images/$1"
+      },
+      {
         "src": "/(.*)",
         "dest": "app.js"
       }
     ]
   }
+  
   
   
