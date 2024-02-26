@@ -13,10 +13,8 @@ app.set('port', 4000);
 app.use(morgan('dev'));
 app.use(express.json());
 
-// Rutas específicas de imágenes
-app.use('/static/images', express.static('./static/img'));
+app.use(upload.single('imagen'));
 
-// Rutas de la aplicación
 app.use('/api/coches', cocheRoutes);
 app.use('/api/marca', marcaRoutes);
 
