@@ -163,6 +163,6 @@ export const methods = {
     addCoche,
     deleteCoche,
     updateCoche,
-    getCochesSorted,
-    uploadCocheImage
+    getCochesSorted
+    //uploadCocheImage
 }
