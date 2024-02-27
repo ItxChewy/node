@@ -1,8 +1,8 @@
 import { getConnection } from "./../database/database"
-const fs = require('node:fs');
-const multer = require('multer');
+//const fs = require('node:fs');
+//const multer = require('multer');
 
-const upload = multer({ dest: './static/img' });
+//const upload = multer({ dest: './static/img' });
 
 const getCoches = async (req, res) => {
     try{
@@ -33,7 +33,7 @@ const addCoche = async (req, res) => {
     try {
         console.log("entro al post");
         const { modelo, descripcion, precio, marcaId} = req.body;
-        const imagenBlob = req.file ? fs.readFileSync(req.file.path) : null;
+        //const imagenBlob = req.file ? fs.readFileSync(req.file.path) : null;
 
         if (modelo === undefined || descripcion === undefined || precio === undefined || marcaId === undefined) {
             return res.status(400).json({ message: "Respuesta incorrecta, completa los campos necesarios" });
@@ -94,9 +94,9 @@ const updateCoche = async (req, res) => {
         if (marcaId !== undefined) coche.marca_id = marcaId;
 
         // Actualiza la imagen solo si se proporciona una nueva
-        if (req.file) {
+       /* if (req.file) {
             coche.imagen_blob = fs.readFileSync(req.file.path); // Lee el nuevo blob de imagen
-        }
+        }*/
 
         const connection = await getConnection();
 
@@ -135,13 +135,13 @@ const getCochesSorted = async (req, res) => {
 
 function saveImage(file){
     const newPath = `./static/img/${file.originalname}`
-    fs.renameSync(file.path, newPath)
+    //fs.renameSync(file.path, newPath)
     return newPath
       
 }
 
 // Ruta para manejar la subida de archivos
- const uploadCocheImage = async (req, res, next) => {
+ /*const uploadCocheImage = async (req, res, next) => {
     try {
         upload.single('ImagenBlob')(req, res, function (err) {
             if (err instanceof multer.MulterError) {
@@ -156,7 +156,7 @@ function saveImage(file){
         res.status(500).send(error.message);
     }
 };
-
+*/
 export const methods = {
     getCoches,
     getCoche,
